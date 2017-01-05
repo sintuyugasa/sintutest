@@ -1,0 +1,11 @@
+{
+    "name": "sintu/test",
+    "authors": [
+        {
+            "name": "sintu.yugasa",
+            "email": "sintu.yugasa@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

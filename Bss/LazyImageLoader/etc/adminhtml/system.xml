@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+* BSS Commerce Co.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://bsscommerce.com/Bss-Commerce-License.txt
+*
+* =================================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* =================================================================
+* This package designed for Magento COMMUNITY edition
+* BSS Commerce does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* BSS Commerce does not provide extension support in case of
+* incorrect edition usage.
+* =================================================================
+*
+* @category   BSS
+* @package    Bss_LazyImageLoader
+* @author     Extension Team
+* @copyright  Copyright (c) 2015-2016 BSS Commerce Co. ( http://bsscommerce.com )
+* @license    http://bsscommerce.com/Bss-Commerce-License.txt
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bss" translate="label" sortOrder="300">
+            <label>Bss Commerce</label>
+        </tab>
+        <section id="lazyimageloader" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Lazy Image Loader</label>
+            <tab>bss</tab>
+            <resource>Bss_LazyImageLoader::config_lazyimage</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Choose 'yes' to enable module.]]></comment>
+                </field>
+                <field id="loading" translate="label" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Loading Icon</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">lazyimage</upload_dir>
+                    <base_url type="media" scope_info="1">lazyimage</base_url>
+                </field>
+                <field id="loading_width" translate="label" type="text"  sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Loading Icon Width</label>
+                    <comment><![CDATA[Set width for loading icon.]]></comment>
+                </field>
+                <field id="threshold" translate="label" type="text"  sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Threshold</label>
+                    <comment><![CDATA[If you want your images to load earlier, lets say number pixel before they appear on the screen.]]></comment>
+                </field>
+                <field id="controller" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude Controllers</label>
+                    <frontend_model>Bss\LazyImageLoader\Block\System\Form\Field\Regex</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Listed controllers will be unaffected by lazy image loader. Use: {module}_{controller}_{action}.]]></comment>
+                </field>
+                <field id="path" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude Paths</label>
+                    <frontend_model>Bss\LazyImageLoader\Block\System\Form\Field\Regex</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Listed paths will be unaffected by lazy image loader. Use: (Example: gear/bags.html).]]></comment>
+                </field>
+                <field id="home_page" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude Home Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Home page will be unaffected by lazy image loader.]]></comment>
+                </field>
+                <field id="help" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Help exclude lazy images</label>
+                    <frontend_model>Bss\LazyImageLoader\Block\System\Form\Field\Help</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
